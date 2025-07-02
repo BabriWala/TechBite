@@ -25,26 +25,31 @@ import {
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  {
-    name: "Services",
-    href: "/services",
-    dropdown: [
-      { name: "Web Development", href: "/services/web-development" },
-      { name: "Mobile Apps", href: "/services/mobile-apps" },
-      { name: "UI/UX Design", href: "/services/design" },
-      { name: "Consulting", href: "/services/consulting" },
-    ],
-  },
-  {
-    name: "Portfolio",
-    href: "/portfolio",
-    dropdown: [
-      { name: "Recent Work", href: "/portfolio/recent" },
-      { name: "Case Studies", href: "/portfolio/case-studies" },
-      { name: "Testimonials", href: "/portfolio/testimonials" },
-    ],
-  },
   { name: "Contact", href: "/contact" },
+  { name: "Privacy", href: "/privacy" },
+  { name: "Cookies", href: "/cookies" },
+  { name: "Terms", href: "/terms" },
+  { name: "Search", href: "/search" },
+  // {
+  //   name: "Services",
+  //   href: "/services",
+  //   dropdown: [
+  //     { name: "Web Development", href: "/services/web-development" },
+  //     { name: "Mobile Apps", href: "/services/mobile-apps" },
+  //     { name: "UI/UX Design", href: "/services/design" },
+  //     { name: "Consulting", href: "/services/consulting" },
+  //   ],
+  // },
+  // {
+  //   name: "Portfolio",
+  //   href: "/portfolio",
+  //   dropdown: [
+  //     { name: "Recent Work", href: "/portfolio/recent" },
+  //     { name: "Case Studies", href: "/portfolio/case-studies" },
+  //     { name: "Testimonials", href: "/portfolio/testimonials" },
+  //   ],
+  // },
+  // { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {

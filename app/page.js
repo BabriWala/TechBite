@@ -1,103 +1,373 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import {
+  Smartphone,
+  Cpu,
+  Gamepad2,
+  Star,
+  ArrowRight,
+  Calendar,
+  User,
+  TrendingUp,
+} from "lucide-react";
 
-export default function Home() {
+export default function TechNewsHomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      {/* <header className="border-b">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold">TechDaily</h1>
+            <nav className="hidden md:flex space-x-6">
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Latest
+              </Link>
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Reviews
+              </Link>
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                AI
+              </Link>
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Mobile
+              </Link>
+            </nav>
+          </div>
         </div>
+      </header> */}
+
+      <main className="container mx-auto px-4 py-8 space-y-12">
+        {/* Hero Section */}
+        <section>
+          <h2 className="text-3xl font-bold mb-6">Latest Tech News</h2>
+
+          {/* Main Hero Card */}
+          <Card className="mb-8 overflow-hidden">
+            <div className="md:flex">
+              <div className="md:w-1/2">
+                <Image
+                  src="/placeholder.svg?height=400&width=600"
+                  alt="Apple Vision Pro Review"
+                  width={600}
+                  height={400}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div className="md:w-1/2 p-6 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="destructive">Breaking</Badge>
+                  <Badge variant="outline">Apple</Badge>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                  Apple Vision Pro Gets Major Update with New Spatial Computing
+                  Features
+                </h3>
+                <p className="text-muted-foreground mb-4 line-clamp-3">
+                  Apple's latest visionOS 2.0 update brings revolutionary
+                  spatial computing capabilities, enhanced hand tracking, and
+                  new productivity apps that could change how we work forever.
+                </p>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <User className="w-4 h-4" />
+                    Sarah Chen
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />2 hours ago
+                  </div>
+                </div>
+                <Button className="w-fit">Read Full Story</Button>
+              </div>
+            </div>
+          </Card>
+
+          {/* Latest News Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title:
+                  "OpenAI Announces GPT-5 with Revolutionary Reasoning Capabilities",
+                author: "Mike Rodriguez",
+                time: "4 hours ago",
+                tag: "AI",
+                image: "/placeholder.svg?height=200&width=300",
+              },
+              {
+                title:
+                  "Tesla's New Cybertruck Update Includes Full Self-Driving Mode",
+                author: "Emma Thompson",
+                time: "6 hours ago",
+                tag: "Automotive",
+                image: "/placeholder.svg?height=200&width=300",
+              },
+              {
+                title:
+                  "Google Pixel 9 Pro Review: The Best Android Camera Yet?",
+                author: "David Park",
+                time: "8 hours ago",
+                tag: "Mobile",
+                image: "/placeholder.svg?height=200&width=300",
+              },
+            ].map((article, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <Image
+                  src={article.image || "/placeholder.svg"}
+                  alt={article.title}
+                  width={300}
+                  height={200}
+                  className="w-full h-48 object-cover"
+                />
+                <CardContent className="p-4">
+                  <Badge variant="secondary" className="mb-2">
+                    {article.tag}
+                  </Badge>
+                  <h4 className="font-semibold mb-2 line-clamp-2">
+                    {article.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span>{article.author}</span>
+                    <span>•</span>
+                    <span>{article.time}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Featured Articles */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-3xl font-bold">Featured Articles</h2>
+            <Button variant="outline">View All</Button>
+          </div>
+
+          <ScrollArea className="w-full whitespace-nowrap">
+            <div className="flex space-x-6 pb-4">
+              {[
+                {
+                  title: "The Future of Quantum Computing: What 2024 Holds",
+                  author: "Dr. Lisa Wang",
+                  date: "Dec 28, 2024",
+                  tags: ["Quantum", "Computing"],
+                  image: "/placeholder.svg?height=240&width=400",
+                  gradient: "from-purple-500/20 to-transparent",
+                },
+                {
+                  title: "iPhone 16 Pro Max: Complete Performance Analysis",
+                  author: "James Wilson",
+                  date: "Dec 27, 2024",
+                  tags: ["iPhone", "Review"],
+                  image: "/placeholder.svg?height=240&width=400",
+                  gradient: "from-blue-500/20 to-transparent",
+                },
+                {
+                  title: "AI Startups That Will Dominate 2025",
+                  author: "Rachel Green",
+                  date: "Dec 26, 2024",
+                  tags: ["AI", "Startups"],
+                  image: "/placeholder.svg?height=240&width=400",
+                  gradient: "from-green-500/20 to-transparent",
+                },
+                {
+                  title: "Meta's New VR Headset Changes Everything",
+                  author: "Tom Anderson",
+                  date: "Dec 25, 2024",
+                  tags: ["VR", "Meta"],
+                  image: "/placeholder.svg?height=240&width=400",
+                  gradient: "from-orange-500/20 to-transparent",
+                },
+                {
+                  title: "Electric Vehicle Market Predictions for 2025",
+                  author: "Anna Martinez",
+                  date: "Dec 24, 2024",
+                  tags: ["EV", "Automotive"],
+                  image: "/placeholder.svg?height=240&width=400",
+                  gradient: "from-red-500/20 to-transparent",
+                },
+              ].map((article, index) => (
+                <Card
+                  key={index}
+                  className="w-80 flex-shrink-0 overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="relative">
+                    <Image
+                      src={article.image || "/placeholder.svg"}
+                      alt={article.title}
+                      width={400}
+                      height={240}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t ${article.gradient}`}
+                    />
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      {article.tags.map((tag, tagIndex) => (
+                        <Badge
+                          key={tagIndex}
+                          variant="secondary"
+                          className="bg-black/50 text-white border-0"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <h4 className="font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                      {article.title}
+                    </h4>
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <span>{article.author}</span>
+                      <span>{article.date}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </section>
+
+        {/* Trending Topics */}
+        <section>
+          <div className="flex items-center gap-2 mb-6">
+            <TrendingUp className="w-6 h-6" />
+            <h2 className="text-3xl font-bold">Trending Topics</h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              {
+                name: "Artificial Intelligence",
+                count: 127,
+                color: "bg-purple-500",
+              },
+              { name: "iPhone 16", count: 89, color: "bg-blue-500" },
+              { name: "Tesla Cybertruck", count: 76, color: "bg-green-500" },
+              { name: "Quantum Computing", count: 54, color: "bg-orange-500" },
+              { name: "ChatGPT", count: 43, color: "bg-red-500" },
+              { name: "Apple Vision Pro", count: 38, color: "bg-indigo-500" },
+              { name: "Google Pixel", count: 32, color: "bg-yellow-500" },
+              { name: "Meta Quest", count: 29, color: "bg-pink-500" },
+              { name: "Samsung Galaxy", count: 25, color: "bg-cyan-500" },
+              { name: "SpaceX", count: 21, color: "bg-teal-500" },
+              { name: "Microsoft Surface", count: 18, color: "bg-violet-500" },
+              { name: "Nintendo Switch", count: 15, color: "bg-rose-500" },
+            ].map((topic, index) => (
+              <Card
+                key={index}
+                className="p-4 hover:shadow-md transition-shadow cursor-pointer group"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <div className={`w-3 h-3 rounded-full ${topic.color}`} />
+                  <Badge variant="outline" className="text-xs">
+                    {topic.count}
+                  </Badge>
+                </div>
+                <h4 className="font-medium text-sm group-hover:text-primary transition-colors">
+                  {topic.name}
+                </h4>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Categories Preview */}
+        <section>
+          <h2 className="text-3xl font-bold mb-6">Explore Categories</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Gadgets",
+                description: "Latest tech gadgets and accessories",
+                icon: Gamepad2,
+                count: "245 articles",
+                color: "text-purple-500",
+              },
+              {
+                title: "Mobile",
+                description: "Smartphones, tablets, and mobile tech",
+                icon: Smartphone,
+                count: "189 articles",
+                color: "text-blue-500",
+              },
+              {
+                title: "AI & Machine Learning",
+                description: "Artificial intelligence and ML news",
+                icon: Cpu,
+                count: "156 articles",
+                color: "text-green-500",
+              },
+              {
+                title: "Reviews",
+                description: "In-depth product reviews and tests",
+                icon: Star,
+                count: "298 articles",
+                color: "text-orange-500",
+              },
+            ].map((category, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <category.icon className={`w-8 h-8 ${category.color}`} />
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+                <p className="text-muted-foreground mb-3 text-sm">
+                  {category.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">
+                    {category.count}
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="group-hover:bg-primary group-hover:text-primary-foreground"
+                  >
+                    View All
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Footer */}
+      {/* <footer className="border-t mt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center text-muted-foreground">
+            <p>&copy; 2024 TechDaily. All rights reserved.</p>
+          </div>
+        </div>
+      </footer> */}
     </div>
   );
 }
