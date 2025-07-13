@@ -17,28 +17,31 @@ import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/team" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+    { name: "Breaking News", href: "/breaking" },
+    { name: "Community", href: "/community" },
+    { name: "News Letter", href: "/newsletter" },
+    { name: "Opinion", href: "/opinion" },
+    // { name: "Careers", href: "/careers" },
+    // { name: "Contact", href: "/contact" },
   ],
   services: [
-    { name: "Web Development", href: "/services/web-development" },
-    { name: "Mobile Apps", href: "/services/mobile-apps" },
-    { name: "UI/UX Design", href: "/services/design" },
-    { name: "Consulting", href: "/services/consulting" },
+    { name: "Podcasts", href: "/podcasts" },
+    { name: "Videos", href: "/videos" },
+    // { name: "Mobile Apps", href: "/services/mobile-apps" },
+    // { name: "UI/UX Design", href: "/services/design" },
+    // { name: "Consulting", href: "/services/consulting" },
   ],
   resources: [
-    { name: "Blog", href: "/blog" },
-    { name: "Documentation", href: "/docs" },
-    { name: "Help Center", href: "/help" },
-    { name: "API Reference", href: "/api" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms & Conditions", href: "/terms" },
+    { name: "Tags", href: "/tags" },
+    // { name: "API Reference", href: "/api" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
     { name: "Cookie Policy", href: "/cookies" },
-    { name: "GDPR", href: "/gdpr" },
+    // { name: "GDPR", href: "/gdpr" },
   ],
 };
 

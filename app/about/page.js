@@ -26,7 +26,8 @@ export default function AboutPage() {
       name: "Sarah Chen",
       role: "Editor-in-Chief",
       bio: "Former tech journalist at TechCrunch with 8+ years covering AI and emerging technologies.",
-      image: "/placeholder.svg?height=200&width=200",
+      image:
+        "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
       social: {
         twitter: "#",
         linkedin: "#",
@@ -37,7 +38,8 @@ export default function AboutPage() {
       name: "Marcus Rodriguez",
       role: "Senior Tech Writer",
       bio: "Specializes in mobile technology and consumer electronics. Previously at The Verge.",
-      image: "/placeholder.svg?height=200&width=200",
+      image:
+        "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
       social: {
         twitter: "#",
         linkedin: "#",
@@ -48,7 +50,8 @@ export default function AboutPage() {
       name: "Dr. Emily Watson",
       role: "AI & Research Editor",
       bio: "PhD in Computer Science, focuses on AI developments and their real-world applications.",
-      image: "/placeholder.svg?height=200&width=200",
+      image:
+        "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
       social: {
         linkedin: "#",
         email: "emily@techdaily.com",
@@ -58,7 +61,8 @@ export default function AboutPage() {
       name: "James Park",
       role: "Product Review Lead",
       bio: "Hardware enthusiast with expertise in testing and reviewing the latest tech products.",
-      image: "/placeholder.svg?height=200&width=200",
+      image:
+        "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
       social: {
         twitter: "#",
         github: "#",

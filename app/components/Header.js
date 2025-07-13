@@ -26,10 +26,10 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
-  { name: "Privacy", href: "/privacy" },
-  { name: "Cookies", href: "/cookies" },
-  { name: "Terms", href: "/terms" },
-  { name: "Search", href: "/search" },
+  // { name: "Privacy", href: "/privacy" },
+  // { name: "Cookies", href: "/cookies" },
+  // { name: "Terms", href: "/terms" },
+  // { name: "Search", href: "/search" },
   // {
   //   name: "Services",
   //   href: "/services",
@@ -112,10 +112,14 @@ export default function Header() {
 
         {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="ghost" size="sm">
-            Sign In
-          </Button>
-          <Button size="sm">Get Started</Button>
+          <Link href="/auth">
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
+          </Link>
+          <Link href={"/article"}>
+            <Button size="sm">Get Started</Button>
+          </Link>
         </div>
 
         {/* Mobile Menu */}

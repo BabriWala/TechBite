@@ -38,7 +38,8 @@ const mockResults = [
       "OpenAI Announces Revolutionary AI Model with Enhanced Reasoning Capabilities",
     summary:
       "The latest AI breakthrough promises to transform how we interact with artificial intelligence, offering unprecedented reasoning and problem-solving abilities across multiple domains.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "AI",
     author: "Sarah Chen",
     publishedDate: "2024-12-28",
@@ -49,7 +50,8 @@ const mockResults = [
     title: "Apple's AI Integration Strategy: What We Know So Far",
     summary:
       "Apple continues to integrate AI features across its ecosystem, with new developments in Siri, iOS, and macOS that could reshape the user experience significantly.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Apple",
     author: "Mike Rodriguez",
     publishedDate: "2024-12-27",
@@ -60,7 +62,8 @@ const mockResults = [
     title: "The Future of Artificial Intelligence in Healthcare Technology",
     summary:
       "Medical professionals are increasingly adopting AI tools for diagnosis, treatment planning, and patient care, leading to improved outcomes and efficiency.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Healthcare",
     author: "Dr. Emily Watson",
     publishedDate: "2024-12-26",
@@ -71,7 +74,8 @@ const mockResults = [
     title: "Google's AI-Powered Search Updates Transform User Experience",
     summary:
       "Recent updates to Google Search incorporate advanced AI algorithms that provide more contextual and accurate results for complex queries.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Google",
     author: "James Park",
     publishedDate: "2024-12-25",
@@ -82,7 +86,8 @@ const mockResults = [
     title: "Microsoft Copilot AI Assistant Gets Major Upgrade",
     summary:
       "The latest version of Microsoft's AI assistant brings enhanced productivity features and better integration across Office applications and Windows.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Microsoft",
     author: "Lisa Wang",
     publishedDate: "2024-12-24",
@@ -93,7 +98,8 @@ const mockResults = [
     title: "AI Ethics: Navigating the Challenges of Responsible Development",
     summary:
       "As AI technology advances rapidly, industry leaders discuss the importance of ethical guidelines and responsible development practices.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Ethics",
     author: "David Kim",
     publishedDate: "2024-12-23",
@@ -104,7 +110,8 @@ const mockResults = [
     title: "Startup Spotlight: AI Companies Revolutionizing Finance",
     summary:
       "Emerging fintech startups are leveraging artificial intelligence to create innovative solutions for banking, investing, and financial planning.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Fintech",
     author: "Rachel Green",
     publishedDate: "2024-12-22",
@@ -115,7 +122,8 @@ const mockResults = [
     title: "AI in Education: Transforming Learning Experiences",
     summary:
       "Educational institutions worldwide are adopting AI-powered tools to personalize learning, automate grading, and enhance student engagement.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:
+      "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?_gl=1*3nnlt0*_ga*MTk1MTMzMjgyNS4xNzM3MDQ1MjQ4*_ga_8JE65Q40S6*czE3NTI0MjQzNTkkbzUzJGcxJHQxNzUyNDI0Mzc1JGo0NCRsMCRoMA..",
     category: "Education",
     author: "Tom Anderson",
     publishedDate: "2024-12-21",
