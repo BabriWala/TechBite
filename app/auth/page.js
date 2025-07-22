@@ -23,7 +23,8 @@ export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [registerData, setRegisterData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -45,14 +46,26 @@ export default function AuthPage() {
       alert("Passwords do not match");
       return;
     }
-    setIsLoading(true);
+    // setIsLoading(true);
+    console.log(registerData);
+    const { firstName, lastName, email, password } = registerData;
+    fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ firstName, lastName, email, password }),
+    });
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsLoading(false);
-    console.log("Register:", registerData);
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    // setIsLoading(false);
+    // console.log("Register:", registerData);
   };
 
   const handleSocialLogin = (provider) => {
+    window.location.href = "http://localhost:5000/api/auth/google";
+    // fetch();
     console.log(`Login with ${provider}`);
   };
 
@@ -206,19 +219,39 @@ export default function AuthPage() {
               <CardContent className="space-y-4">
                 <form onSubmit={handleRegister} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="register-name">Full Name</Label>
+                    <Label htmlFor="register-firstName">First Name</Label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                       <Input
-                        id="register-name"
+                        id="register-firstName"
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder="Enter your First name"
                         className="pl-10"
-                        value={registerData.name}
+                        value={registerData.firstName}
                         onChange={(e) =>
                           setRegisterData({
                             ...registerData,
-                            name: e.target.value,
+                            firstName: e.target.value,
+                          })
+                        }
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="register-lastName">Last Name</Label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                      <Input
+                        id="register-lastName"
+                        type="text"
+                        placeholder="Enter your Last name"
+                        className="pl-10"
+                        value={registerData.lastName}
+                        onChange={(e) =>
+                          setRegisterData({
+                            ...registerData,
+                            lastName: e.target.value,
                           })
                         }
                         required
