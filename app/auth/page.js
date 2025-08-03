@@ -16,6 +16,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Eye, EyeOff, Github, Mail, Lock, User, Chrome } from "lucide-react";
 import Link from "next/link";
+import { loginUser, registerUser } from "../services/auth";
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,13 +34,22 @@ export default function AuthPage() {
     agreeToTerms: false,
   });
 
+  const { login } = useAuth();
+  const router = useRouter();
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsLoading(false);
-    console.log("Login:", loginData);
+    // console.log(loginData);
+    const result = await loginUser(loginData);
+    // console.log(result);
+    login(result?.data?.user);
+    localStorage.setItem("accessToken", result?.data?.accessToken);
+    router.push("/");
+    // setIsLoading(true);
+    // // Simulate API call
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    // setIsLoading(false);
+    // console.log("Login:", loginData);
   };
 
   const handleRegister = async (e) => {
@@ -47,16 +59,18 @@ export default function AuthPage() {
       return;
     }
     // setIsLoading(true);
-    console.log(registerData);
+    // console.log(registerData);
     const { firstName, lastName, email, password } = registerData;
-    fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ firstName, lastName, email, password }),
-    });
+    const result = await registerUser({ firstName, lastName, email, password });
+    console.log(result);
+    // fetch("http://localhost:5000/api/auth/register", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify({ firstName, lastName, email, password }),
+    // });
     // Simulate API call
     // await new Promise((resolve) => setTimeout(resolve, 2000));
     // setIsLoading(false);

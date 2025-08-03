@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { AuthProvider } from "./context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,15 +19,18 @@ export const metadata = {
   description: "A wonderful site for developers where everyone can contribute.",
 };
 
+// if route  current => admin -> ei page -> Header Main
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header></Header>
-        {children}
-        <Footer></Footer>
+        <AuthProvider>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </AuthProvider>
       </body>
     </html>
   );

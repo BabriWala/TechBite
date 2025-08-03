@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -45,6 +45,7 @@ import {
   Trash2,
   Mail,
 } from "lucide-react";
+import { getAllUses } from "@/app/services/usersServices";
 
 const users = [
   {
@@ -109,6 +110,21 @@ export default function UsersPage() {
   const [roleFilter, setRoleFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
 
+  const [realUsers, setRealUsers] = useState([]);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data = await getAllUses();
+        console.log(data.data.documents, "users Data retrieved");
+        setRealUsers(data.data.documents);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   const filteredUsers = users.filter((user) => {
     const matchesSearch =
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -149,7 +165,7 @@ export default function UsersPage() {
 
   const getStatusBadge = (status) => {
     switch (status) {
-      case "active":
+      case true:
         return (
           <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
             Active
@@ -231,7 +247,7 @@ export default function UsersPage() {
         <Card>
           <CardContent className="p-4">
             <div className="text-2xl font-bold text-gray-900 dark:text-white">
-              {users.length}
+              {realUsers?.length}
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Total Users
@@ -318,7 +334,7 @@ export default function UsersPage() {
       {/* Users Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Users ({filteredUsers.length})</CardTitle>
+          <CardTitle>Users ({realUsers?.length})</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
@@ -334,45 +350,40 @@ export default function UsersPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredUsers.map((user) => (
-                  <TableRow key={user.id}>
+                {realUsers?.map((user) => (
+                  <TableRow key={user?._id}>
                     <TableCell>
                       <div className="flex items-center space-x-3">
                         <Avatar className="h-8 w-8">
                           <AvatarImage
                             src={`/placeholder.svg?height=32&width=32`}
                           />
-                          <AvatarFallback>
-                            {user.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </AvatarFallback>
+                          <AvatarFallback>{user?.firstName}</AvatarFallback>
                         </Avatar>
                         <div>
                           <div className="font-medium text-gray-900 dark:text-white">
-                            {user.name}
+                            {user?.lastName}
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-400">
-                            {user.email}
+                            {user?.email}
                           </div>
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell>{getRoleBadge(user.role)}</TableCell>
-                    <TableCell>{getStatusBadge(user.status)}</TableCell>
+                    <TableCell>{getRoleBadge(user?.role)}</TableCell>
+                    <TableCell>{getStatusBadge(user?.isActive)}</TableCell>
                     <TableCell>
                       <div className="text-sm">
                         <div className="text-gray-900 dark:text-white">
-                          {user.articles} articles, {user.comments} comments
+                          {/* {user.articles} articles, {user.comments} comments */}
                         </div>
                         <div className="text-gray-500 dark:text-gray-400">
-                          Last active: {user.lastActive}
+                          Last active: {user?.lastLogin}
                         </div>
                       </div>
                     </TableCell>
                     <TableCell className="text-gray-600 dark:text-gray-400">
-                      {user.joinDate}
+                      {user.createdAt}
                     </TableCell>
                     <TableCell className="text-right">
                       <DropdownMenu>

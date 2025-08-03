@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -31,6 +31,9 @@ import {
   Heart,
   Share2,
 } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
+import axios from "axios";
+import API from "../services/auth";
 
 export default function ProfilePage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -111,6 +114,41 @@ export default function ProfilePage() {
     },
   ];
 
+  // const { user: originalUser } = useAuth();
+  // console.log(realuser);
+  const [realUser, setRealUser] = useState(null);
+  // console.log(originalUser?.accessToken);
+
+  const fetchProfile = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    try {
+      const response = await API.get("/users/profile/me");
+      setRealUser(response?.data?.data?.user);
+      console.log(response, "from 125");
+    } catch (e) {
+      console.log(localStorage.getItem("accessToken"));
+      console.log(e);
+
+      // const response = await axios.post(
+      //   "http://localhost:5000/api/auth/refresh-token",
+      //   {},
+      //   {
+      //     // credentials: "include",
+      //     withCredentials: true,
+      //   }
+      // );
+
+      // console.log(response);
+    }
+  };
+  //
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
+  // console.log(realUser);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,10 +159,10 @@ export default function ProfilePage() {
               <Avatar className="h-20 w-20">
                 <AvatarImage
                   src={user.avatar || "/placeholder.svg"}
-                  alt={user.name}
+                  alt={realUser?.firstName}
                 />
                 <AvatarFallback className="text-lg font-semibold">
-                  {user.name
+                  {realUser?.firstName
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
@@ -135,11 +173,11 @@ export default function ProfilePage() {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                      {user.name}
+                      {realUser?.lastName}
                     </h1>
                     <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                       <Mail className="h-4 w-4" />
-                      <span>{user.email}</span>
+                      <span>{realUser?.email}</span>
                     </div>
                     <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mt-1">
                       <Calendar className="h-4 w-4" />
